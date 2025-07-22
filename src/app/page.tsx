@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { supabase } from '@/lib/supabaseClient'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export default function AuthPage() {
   const [email, setEmail] = useState('')
@@ -22,7 +24,7 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form onSubmit={handleLogin} className="bg-white p-6 rounded shadow-md space-y-4">
         <h2 className="text-xl font-bold">Login / Signup</h2>
-        <input
+        <Input
           type="email"
           className="border p-2 w-full"
           placeholder="Enter your email"
@@ -30,9 +32,9 @@ export default function AuthPage() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Send Magic Link
-        </button>
+        </Button>
         {message && <p className="text-sm text-gray-600">{message}</p>}
       </form>
     </div>
